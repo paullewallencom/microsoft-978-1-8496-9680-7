@@ -1,0 +1,111 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="SpaceAim3D.Views.WebPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Landscape" Orientation="Landscape">
+
+    <phone:PhoneApplicationPage.Resources>
+        <Style TargetType="phone:WebBrowser">
+            <Setter Property="IsScriptEnabled" Value="True" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="BorderBrush" Value="{StaticResource SA3DDarkBrush}" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+        <Style TargetType="Border" x:Key="TwPINArea">
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Margin" Value="20" />
+            <Setter Property="Width" Value="330" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="BorderBrush" Value="{StaticResource SA3DDarkBrush}" />
+            <Setter Property="Background" Value="{StaticResource SA3DBackgroundBrush}" />
+            <Setter Property="Padding" Value="10 10 10 0" />
+            <Setter Property="Visibility" Value="Collapsed" />
+            <Setter Property="Opacity" Value="0.6" />
+        </Style>
+        <Style TargetType="TextBox" x:Key="TwPINTextBox">
+            <Setter Property="BorderBrush" Value="{StaticResource SA3DDarkBrush}" />
+            <Setter Property="Height" Value="80" />
+            <Setter Property="Width" Value="210" />
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="{StaticResource SA3DFontBrush}" />
+            <Setter Property="Background" Value="White" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource SA3DFontBrush}" />
+        </Style>
+    </phone:PhoneApplicationPage.Resources>
+
+    <Grid Style="{StaticResource SA3DBackgroundGrid}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding LocalizedResources.WebHeader, Source={StaticResource LocalizedStrings}}" Style="{StaticResource SA3DHeader}"/>
+
+        <!-- "Facebook & Twitter" part -->
+        <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource SA3DBox}">
+            <StackPanel>
+                <TextBlock Text="{Binding LocalizedResources.WebGroupSocial, Source={StaticResource LocalizedStrings}}" Style="{StaticResource SA3DBoxHeader}" />
+                <Button Content="{Binding LocalizedResources.WebPublish, Source={StaticResource LocalizedStrings}}" Command="{Binding CmdFacebook}" />
+                <Button Content="{Binding LocalizedResources.WebTweet, Source={StaticResource LocalizedStrings}}" Command="{Binding CmdTwitter}" />
+            </StackPanel>
+        </Border>
+
+        <!-- "Rate" part -->
+        <Border Grid.Row="2" Grid.Column="0" Style="{StaticResource SA3DBox}">
+            <StackPanel>
+                <TextBlock Text="{Binding LocalizedResources.WebGroupRate, Source={StaticResource LocalizedStrings}}" Style="{StaticResource SA3DBoxHeader}" />
+                <Button Content="{Binding LocalizedResources.WebRate, Source={StaticResource LocalizedStrings}}" Command="{Binding CmdRate}" />
+            </StackPanel>
+        </Border>
+
+        <!-- "Latest news" part -->
+        <Border Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Style="{StaticResource SA3DBox}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Grid.Column="0">
+                    <TextBlock Text="{Binding LocalizedResources.WebGroupNews, Source={StaticResource LocalizedStrings}}" Style="{StaticResource SA3DBoxHeader}" />
+                    <TextBlock Text="{Binding LatestNews.Title}" TextWrapping="Wrap" FontWeight="Bold" FontSize="24" />
+                    <TextBlock Text="{Binding LatestNews.Description}" TextWrapping="Wrap" FontSize="22" />
+                    <TextBlock Text="{Binding LatestNews.Date}" HorizontalAlignment="Right" FontSize="20" Margin="0 0 0 10" />
+                </StackPanel>
+                <Button Grid.Row="1" Grid.Column="0" Content="{Binding LocalizedResources.WebProjectWebsite, Source={StaticResource LocalizedStrings}}" Command="{Binding CmdWebsite}" />
+            </Grid>
+        </Border>
+
+        <!-- Web browser related to the Facebook support -->
+        <phone:WebBrowser Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Visibility="{Binding FbVisibility}" Source="{Binding FbUri}" Navigated="Fb_Navigated" x:Name="FbBrowser" />
+
+        <!-- Web browser and other controls related to the Twitter support -->
+        <phone:WebBrowser Visibility="{Binding TwVisibility}" Source="{Binding TwUri}" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" x:Name="TwBrowser" />
+        <Border Visibility="{Binding TwVisibility}" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Style="{StaticResource TwPINArea}">
+            <StackPanel>
+                <TextBlock Text="{Binding LocalizedResources.WebTwInstruction, Source={StaticResource LocalizedStrings}}" Foreground="{StaticResource SA3DFontBrush}" TextWrapping="Wrap" FontSize="20" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Text="{Binding TwPIN, Mode=TwoWay}" Style="{StaticResource TwPINTextBox}" />
+                    <Button Content="Go!" FontSize="30" Background="White" Command="{Binding CmdTwPINGo}" />
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</phone:PhoneApplicationPage>

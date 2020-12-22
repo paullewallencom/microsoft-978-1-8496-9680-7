@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SpaceAim3D.WebService.SA3DService" CodeBehind="SA3DService.svc.cs" %>

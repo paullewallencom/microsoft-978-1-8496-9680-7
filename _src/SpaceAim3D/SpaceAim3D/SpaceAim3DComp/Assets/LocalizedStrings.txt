@@ -1,0 +1,9 @@
+﻿# DEFAULT TRANSLATIONS
+Level;Level
+Score;Score
+Rockets;Rockets
+Resume;Resume
+SendResult;Send result
+Restart;Restart
+Back;Back to menu
+OutOfRockets;You run out of rockets!

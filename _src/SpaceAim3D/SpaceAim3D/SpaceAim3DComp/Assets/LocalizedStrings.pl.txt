@@ -1,0 +1,9 @@
+﻿# POLISH TRANSLATIONS
+Level;Poziom
+Score;Wynik
+Rockets;Liczba rakiet
+Resume;Kontynuuj
+SendResult;Wyślij wynik
+Restart;Restart
+Back;Powrót do menu
+OutOfRockets;Brak rakiet!

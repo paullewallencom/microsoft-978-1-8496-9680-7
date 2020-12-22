@@ -1,0 +1,77 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="SpaceAim3D.Views.MenuPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Landscape" Orientation="Landscape">
+
+    <phone:PhoneApplicationPage.Resources>
+        <Style TargetType="Border">
+            <Setter Property="CornerRadius" Value="125" />
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="/Assets/Asteroid.png" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="ButtonText">
+            <Setter Property="FontSize" Value="40" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+    </phone:PhoneApplicationPage.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Background.png" />
+        </Grid.Background>
+
+        <!-- Header -->
+        <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource SA3DHeader}">
+            Space Aim <Bold>3D</Bold>
+        </TextBlock>
+
+        <!-- Menu options as "asteroids" -->
+        <Border Grid.Row="1" Margin="38,10,508,124" Tap="BrdPage_Tap" Tag="play">
+            <TextBlock Style="{StaticResource ButtonText}" Text="{Binding LocalizedResources.MenuPlay, Source={StaticResource LocalizedStrings}}" />
+        </Border>
+        <Border Grid.Row="1" Margin="243,45,353,139" Tap="BrdPage_Tap" Tag="ranks">
+            <TextBlock Style="{StaticResource ButtonText}" Text="{Binding LocalizedResources.MenuRanks, Source={StaticResource LocalizedStrings}}" />
+        </Border>
+        <Border Grid.Row="1" Margin="100,190,557,53" Tap="BrdPage_Tap" Tag="map">
+            <TextBlock Style="{StaticResource ButtonText}" Text="{Binding LocalizedResources.MenuMap, Source={StaticResource LocalizedStrings}}"/>
+        </Border>
+        <Border Grid.Row="1" Margin="228,186,400,29" Tap="BrdPage_Tap" Tag="world">
+            <TextBlock Style="{StaticResource ButtonText}" Text="{Binding LocalizedResources.MenuWorld, Source={StaticResource LocalizedStrings}}" />
+        </Border>
+        <Border Grid.Row="1" Margin="526,105,64,123" Tap="BrdPage_Tap" Tag="settings">
+            <TextBlock Style="{StaticResource ButtonText}" Text="{Binding LocalizedResources.MenuSettings, Source={StaticResource LocalizedStrings}}" />
+        </Border>
+        <Border Grid.Row="1" Margin="473,190,169,38" Tap="BrdPage_Tap" Tag="web">
+            <TextBlock Style="{StaticResource ButtonText}" Text="{Binding LocalizedResources.MenuWeb, Source={StaticResource LocalizedStrings}}" />
+        </Border>
+        <Border Grid.Row="1" Margin="602,211,40,17" Tap="BrdPage_Tap" Tag="help">
+            <TextBlock Style="{StaticResource ButtonText}" Text="{Binding LocalizedResources.MenuHelp, Source={StaticResource LocalizedStrings}}" />
+        </Border>
+
+        <!-- Speech recognition feature -->
+        <Border Grid.Row="1" Margin="24,288,700,20" Tap="BrdVoice_Tap">
+            <Image Source="/Assets/Voice.png" Height="45" />
+        </Border>
+    </Grid>
+</phone:PhoneApplicationPage>

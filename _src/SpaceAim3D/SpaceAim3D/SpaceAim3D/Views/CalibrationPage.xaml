@@ -1,0 +1,33 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="SpaceAim3D.Views.CalibrationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Landscape" Orientation="Landscape">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <!-- Header -->
+        <TextBlock Text="{Binding LocalizedResources.WorldHeader, Source={StaticResource LocalizedStrings}}" Style="{StaticResource SA3DHeader}" Grid.Row="0" Grid.Column="0" />
+        
+        <!-- Main part with the text and the movie -->
+        <Border Style="{StaticResource SA3DMainOuterBorder}" Grid.Row="1" Grid.Column="0">
+            <Border Style="{StaticResource SA3DMainInnerBorder}">
+                <StackPanel>
+                    <TextBlock Text="{Binding LocalizedResources.CalibrationInformation, Source={StaticResource LocalizedStrings}}" FontSize="26" TextAlignment="Center" />
+                    <MediaElement Source="Assets/Calibration.wmv" MediaEnded="Me_MediaEnded" AutoPlay="True" Height="270" Margin="10"/>
+                </StackPanel>
+            </Border>
+        </Border>
+    </Grid>
+</phone:PhoneApplicationPage>

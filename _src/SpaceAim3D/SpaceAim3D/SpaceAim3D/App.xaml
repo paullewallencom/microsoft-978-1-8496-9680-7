@@ -1,0 +1,90 @@
+﻿<Application
+    x:Class="SpaceAim3D.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone">
+
+    <!-- Application Resources -->
+    <Application.Resources>
+        <local:LocalizedStrings xmlns:local="clr-namespace:SpaceAim3D" x:Key="LocalizedStrings"/>
+        
+        <!-- MediaElement for playing the background music -->
+        <MediaElement x:Key="MeBackgroundMusic" AutoPlay="False" MediaOpened="Me_MediaOpened" MediaEnded="Me_MediaEnded" />
+
+        <!-- Colors and brushes -->
+        <Color x:Key="SA3DFontColor">#9b450e</Color>
+        <SolidColorBrush x:Key="SA3DFontBrush" Color="{StaticResource SA3DFontColor}" />
+        <SolidColorBrush x:Key="SA3DDarkBrush" Color="#a74c14"/>
+        <SolidColorBrush x:Key="SA3DLightBrush" Color="#da9217" />
+        <LinearGradientBrush x:Key="SA3DBackgroundBrush" StartPoint="0.0,0.0" EndPoint="0.0,1.0">
+            <GradientStop Color="#fcec9e" Offset="0.1" />
+            <GradientStop Color="#e8b937" Offset="1.0" />
+        </LinearGradientBrush>
+        
+        <!-- Styles -->
+        <Style x:Key="SA3DBackgroundGrid" TargetType="Grid">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="/Assets/Background.png" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="SA3DBox" TargetType="Border">
+            <Setter Property="Background" Value="{StaticResource SA3DBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource SA3DDarkBrush}" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="Padding" Value="10 0 10 0" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+        <Style x:Key="SA3DBoxHeader" TargetType="TextBlock" BasedOn="{StaticResource PhoneTextTitle2Style}">
+            <Setter Property="FontSize" Value="40" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="{StaticResource SA3DFontBrush}" />
+        </Style>
+        <Style x:Key="SA3DMainOuterBorder" TargetType="Border">
+            <Setter Property="BorderBrush" Value="{StaticResource SA3DDarkBrush}" />
+            <Setter Property="BorderThickness" Value="3" />
+            <Setter Property="Margin" Value="20" />
+        </Style>
+        <Style x:Key="SA3DMainInnerBorder" TargetType="Border">
+            <Setter Property="BorderBrush" Value="{StaticResource SA3DLightBrush}" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="Background" Value="Black" />
+        </Style>
+        <Style x:Key="SA3DMessageBox" TargetType="Border" BasedOn="{StaticResource SA3DBox}">
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="BorderBrush" Value="#3a1200" />
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0.3" Color="#dc5215" />
+                        <GradientStop Offset="1.0" Color="#5e1d00" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="SA3DMessage" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="26" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="{StaticResource SA3DFontBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource SA3DFontBrush}" />
+        </Style>
+        <Style x:Key="SA3DHeader" TargetType="TextBlock" BasedOn="{StaticResource PhoneTextTitle1Style}">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+    </Application.Resources>
+
+    <Application.ApplicationLifetimeObjects>
+        <!-- Required object that handles lifetime events for the application -->
+        <shell:PhoneApplicationService
+            Launching="Application_Launching" Closing="Application_Closing"
+            Activated="Application_Activated" Deactivated="Application_Deactivated"/>
+    </Application.ApplicationLifetimeObjects>
+</Application>

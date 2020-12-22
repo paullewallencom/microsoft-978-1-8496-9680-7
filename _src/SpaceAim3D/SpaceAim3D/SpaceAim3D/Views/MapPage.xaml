@@ -1,0 +1,113 @@
+﻿<phone:PhoneApplicationPage x:Name="Page"
+    x:Class="SpaceAim3D.Views.MapPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Models="clr-namespace:SpaceAim3D.Models"  
+    xmlns:Controls="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
+    xmlns:Location="clr-namespace:System.Device.Location;assembly=System.Device"
+    xmlns:Toolkit="clr-namespace:Microsoft.Phone.Maps.Toolkit;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Landscape" Orientation="Landscape">
+
+    <phone:PhoneApplicationPage.Resources>
+        <Models:OpacityConverter x:Key="opacityConverter" />
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="80" />
+            <Setter Property="Width" Value="80" />
+            <Setter Property="Opacity" Value="0.6" />
+        </Style>
+        <Style TargetType="TextBlock" x:Key="StatusText">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Height" Value="25" />
+        </Style>
+        <Style TargetType="Button" x:Key="NavigateButton">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="Margin" Value="0,-5,0,0" />
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+        <Style TargetType="TextBlock" x:Key="PlayerName">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Margin" Value="0,5,0,0" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+    </phone:PhoneApplicationPage.Resources>
+
+    <Grid Style="{StaticResource SA3DBackgroundGrid}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding LocalizedResources.MapHeader, Source={StaticResource LocalizedStrings}}" Style="{StaticResource SA3DHeader}" />
+
+        <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource SA3DMainOuterBorder}">
+            <Border Style="{StaticResource SA3DMainInnerBorder}">
+                <Grid>
+                    <!-- Map control -->
+                    <Controls:Map x:Name="MapPlayers" 
+                                  Center="{Binding Center, Mode=TwoWay}"
+                                  ZoomLevel="{Binding Zoom, Mode=TwoWay}"
+                                  CartographicMode="{Binding Mode, Mode=TwoWay}"
+                                  LandmarksEnabled="{Binding Landmarks, Mode=TwoWay}" 
+                                  PedestrianFeaturesEnabled="{Binding Pedestrians, Mode=TwoWay}"
+                                  Loaded="MapPlayers_Loaded">
+                        <Toolkit:MapExtensions.Children>
+                            <Toolkit:MapItemsControl>
+                                <Toolkit:MapItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Toolkit:Pushpin GeoCoordinate="{Binding Location}">
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Name}" Style="{StaticResource PlayerName}" />
+                                                <Button Tag="{Binding}" Click="BtnNavigate_Click" Content="{Binding LocalizedResources.MapNavigate, Source={StaticResource LocalizedStrings}}" Style="{StaticResource NavigateButton}" />
+                                            </StackPanel>
+                                        </Toolkit:Pushpin>
+                                    </DataTemplate>
+                                </Toolkit:MapItemsControl.ItemTemplate>
+                            </Toolkit:MapItemsControl>
+                            <Toolkit:UserLocationMarker GeoCoordinate="{Binding DataContext.UserLocation, ElementName=Page}" />
+                        </Toolkit:MapExtensions.Children>
+                    </Controls:Map>
+
+                    <!-- Buttons -->
+                    <Button Margin="0,0,670,254" Command="{Binding CmdZoomIn}">
+                        <Image Source="/Assets/MapZoomIn.png" />
+                    </Button>
+                    <Button Margin="0,80,670,174" Command="{Binding CmdZoomOut}">
+                        <Image Source="/Assets/MapZoomOut.png" />
+                    </Button>
+                    <Button Margin="0,174,671,80" Command="{Binding CmdLandmarks}" Opacity="{Binding Landmarks, Converter={StaticResource opacityConverter}}">
+                        <Image Source="/Assets/MapLandmarks.png" />
+                    </Button>
+                    <Button Margin="0,254,671,0" Command="{Binding CmdPedestrians}" Opacity="{Binding Pedestrians, Converter={StaticResource opacityConverter}}">
+                        <Image Source="/Assets/MapPedestrians.png" />
+                    </Button>
+                    <Button Margin="670,0,0,254" Command="{Binding CmdMode}">
+                        <Image Source="/Assets/MapMode.png" />
+                    </Button>
+
+                    <!-- Status information -->
+                    <TextBlock Text="{Binding GeolocatorStatus}" Style="{StaticResource StatusText}" Margin="0,-30,0,0" />
+                    <TextBlock Text="{Binding DownloadStatus}" Style="{StaticResource StatusText}" Margin="0,-50,0,0" />
+                </Grid>
+            </Border>
+        </Border>
+    </Grid>
+</phone:PhoneApplicationPage>

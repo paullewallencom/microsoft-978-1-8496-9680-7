@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ResourceFlowDirection" xml:space="preserve">
+    <value>LeftToRight</value>
+    <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
+  </data>
+  <data name="ResourceLanguage" xml:space="preserve">
+    <value>en-US</value>
+    <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="MenuMap" xml:space="preserve">
+    <value>Map</value>
+  </data>
+  <data name="MenuPlay" xml:space="preserve">
+    <value>Play!</value>
+  </data>
+  <data name="MenuRanks" xml:space="preserve">
+    <value>Ranks</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="MenuWeb" xml:space="preserve">
+    <value>Web</value>
+  </data>
+  <data name="MenuWorld" xml:space="preserve">
+    <value>World</value>
+  </data>
+  <data name="WorldHeader" xml:space="preserve">
+    <value>Players world</value>
+  </data>
+  <data name="MapHeader" xml:space="preserve">
+    <value>Players map</value>
+  </data>
+  <data name="RanksHeader" xml:space="preserve">
+    <value>Ranks</value>
+  </data>
+  <data name="RanksLast24h" xml:space="preserve">
+    <value>Last 24h</value>
+  </data>
+  <data name="RanksLocal" xml:space="preserve">
+    <value>Local</value>
+  </data>
+  <data name="RanksOverall" xml:space="preserve">
+    <value>Overall</value>
+  </data>
+  <data name="SettingsGroupGame" xml:space="preserve">
+    <value>Game</value>
+  </data>
+  <data name="SettingsGroupUser" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="SettingsHeader" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SettingsMusicVolume" xml:space="preserve">
+    <value>Music volume:</value>
+  </data>
+  <data name="SettingsName" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="SettingsNameDescription" xml:space="preserve">
+    <value>The "Name" setting can be presented to anyone with game results and location data. It can be also changed later.</value>
+  </data>
+  <data name="SettingsPrivacy" xml:space="preserve">
+    <value>Privacy policy</value>
+  </data>
+  <data name="SettingsPrivacyDescription" xml:space="preserve">
+    <value>The Space Aim 3D privacy policy is available on the following website:</value>
+  </data>
+  <data name="SettingsSendLocation" xml:space="preserve">
+    <value>Send location:</value>
+  </data>
+  <data name="SettingsSendLocationDescription" xml:space="preserve">
+    <value>If "Send location" option is enabled, your current location is automatically sent over the Internet and can be presented to anyone in the game.</value>
+  </data>
+  <data name="SettingsVibrations" xml:space="preserve">
+    <value>Vibrations:</value>
+  </data>
+  <data name="WebGroupNews" xml:space="preserve">
+    <value>Latest news</value>
+  </data>
+  <data name="WebGroupRate" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="WebGroupSocial" xml:space="preserve">
+    <value>Facebook &amp; Twitter</value>
+  </data>
+  <data name="WebHeader" xml:space="preserve">
+    <value>Web</value>
+  </data>
+  <data name="WebProjectWebsite" xml:space="preserve">
+    <value>Open project website</value>
+  </data>
+  <data name="WebPublish" xml:space="preserve">
+    <value>Publish at Facebook wall</value>
+  </data>
+  <data name="WebRate" xml:space="preserve">
+    <value>Rate Space Aim 3D</value>
+  </data>
+  <data name="WebTweet" xml:space="preserve">
+    <value>Tweet at Twitter</value>
+  </data>
+  <data name="HelpEnjoy" xml:space="preserve">
+    <value>Enjoy the game! :-)</value>
+  </data>
+  <data name="HelpFacebookProfile" xml:space="preserve">
+    <value>Facebook profile</value>
+  </data>
+  <data name="HelpGameAim" xml:space="preserve">
+    <value>The game aim is to steer the space rocket to achieve the target planet and avoid asteroids. After reaching the aim, the game level and difficulty increase. Every crash breaks the rocket. The game ends when the player runs out of rockets.</value>
+  </data>
+  <data name="HelpGameWebsite" xml:space="preserve">
+    <value>Game website</value>
+  </data>
+  <data name="HelpGroupAbout" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="HelpGroupGameAim" xml:space="preserve">
+    <value>Game aim</value>
+  </data>
+  <data name="HelpGroupSteering" xml:space="preserve">
+    <value>Steering</value>
+  </data>
+  <data name="HelpHeader" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="HelpMoreInformation" xml:space="preserve">
+    <value>More information:</value>
+  </data>
+  <data name="HelpSendEmail" xml:space="preserve">
+    <value>Send e-mail</value>
+  </data>
+  <data name="HelpSteering" xml:space="preserve">
+    <value>You should rotate the phone to indicate a correct direction of the rocket.</value>
+  </data>
+  <data name="MapNavigate" xml:space="preserve">
+    <value>Navigate</value>
+  </data>
+  <data name="WorldNavigate" xml:space="preserve">
+    <value>Navigate</value>
+  </data>
+  <data name="GeolocatorDisabled" xml:space="preserve">
+    <value>GPS receiver is disabled</value>
+  </data>
+  <data name="GeolocatorInitializing" xml:space="preserve">
+    <value>Initializing GPS receiver...</value>
+  </data>
+  <data name="GeolocatorNoData" xml:space="preserve">
+    <value>Reading GPS location...</value>
+  </data>
+  <data name="GeolocatorNotAvailable" xml:space="preserve">
+    <value>GPS receiver is not available</value>
+  </data>
+  <data name="WorldCalibrateCompass" xml:space="preserve">
+    <value>Please calibrate the compass!</value>
+  </data>
+  <data name="WorldCannotStartAR" xml:space="preserve">
+    <value>Cannot start the augmented reality feature!</value>
+  </data>
+  <data name="WorldLoadingMessage1" xml:space="preserve">
+    <value>Please wait...</value>
+  </data>
+  <data name="WorldLoadingMessage2" xml:space="preserve">
+    <value>Loading the augmented reality feature!</value>
+  </data>
+  <data name="RanksCannotDownloadResults" xml:space="preserve">
+    <value>Cannot download results! Please check your internet connection.</value>
+  </data>
+  <data name="RanksDownloadingResults" xml:space="preserve">
+    <value>Downloading results...</value>
+  </data>
+  <data name="MapCannotDownloadData" xml:space="preserve">
+    <value>Cannot download players data!</value>
+  </data>
+  <data name="MapDownloadingData" xml:space="preserve">
+    <value>Downloading players data...</value>
+  </data>
+  <data name="WorldCannotDownloadData" xml:space="preserve">
+    <value>Cannot download players data!</value>
+  </data>
+  <data name="WebFbMessageFailure" xml:space="preserve">
+    <value>Cannot post the message at your wall! Such a situation can occur if you have recently posted the message from Space Aim 3D.</value>
+  </data>
+  <data name="WebFbMessageSuccess" xml:space="preserve">
+    <value>The message has been posted at your wall! Thank you!</value>
+  </data>
+  <data name="WebFbMessageTitle" xml:space="preserve">
+    <value>Facebook post</value>
+  </data>
+  <data name="WebFbPost" xml:space="preserve">
+    <value>I am playing the Space Aim 3D game! Do you know it? :-)</value>
+  </data>
+  <data name="WebTwError" xml:space="preserve">
+    <value>An error occurred! Please try again.</value>
+  </data>
+  <data name="WebTwIncorrectPIN" xml:space="preserve">
+    <value>You entered the incorrect PIN!</value>
+  </data>
+  <data name="WebTwInstruction" xml:space="preserve">
+    <value>To authorize the game to publish an update, you should type username and password to the Twitter account, press "Authorize app" button, type the PIN in the field below, and press "Go"!</value>
+  </data>
+  <data name="WebTwMessageFailure" xml:space="preserve">
+    <value>Cannot tweet! Such a situation can occur if you have recently updated your status from Space Aim 3D.</value>
+  </data>
+  <data name="WebTwMessageSuccess" xml:space="preserve">
+    <value>The tweet has been published! Thank you!</value>
+  </data>
+  <data name="WebTwMessageTitle" xml:space="preserve">
+    <value>Twitter update</value>
+  </data>
+  <data name="WebTwStatus" xml:space="preserve">
+    <value>I am playing the @SpaceAim3D game! Do you know it? :-)</value>
+  </data>
+  <data name="WebLatestNewsErrorMessage" xml:space="preserve">
+    <value>Cannot download the latest news about the Space Aim 3D game.</value>
+  </data>
+  <data name="WebLatestNewsErrorTitle" xml:space="preserve">
+    <value>Error!</value>
+  </data>
+  <data name="SettingsNameIncorrectMessage" xml:space="preserve">
+    <value>The name can contain only capital (A-Z) and small (a-z) letters, digits (0-9), "-", and "_" chars. Its length has to be greater or equal to 3 and less or equal to 10.</value>
+  </data>
+  <data name="SettingsNameIncorrectTitle" xml:space="preserve">
+    <value>Incorrect name!</value>
+  </data>
+  <data name="CalibrationInformation" xml:space="preserve">
+    <value>Please calibrate the compass and press the back button.</value>
+  </data>
+  <data name="MenuSpeechAnswerExample" xml:space="preserve">
+    <value>'play', 'map', 'world', 'ranks', 'settings', 'web', or 'help'</value>
+  </data>
+  <data name="MenuSpeechErrorMessage" xml:space="preserve">
+    <value>You should enable the speech recognition to use the voice mechanism in the game.</value>
+  </data>
+  <data name="MenuSpeechErrorTitle" xml:space="preserve">
+    <value>Voice mechanism</value>
+  </data>
+  <data name="MenuSpeechNavigatingMessage" xml:space="preserve">
+    <value>Navigating to the {0} screen</value>
+  </data>
+  <data name="MenuSpeechQuestion" xml:space="preserve">
+    <value>Which part do you want to launch?</value>
+  </data>
+  <data name="HelpAuthor" xml:space="preserve">
+    <value>Author: Marcin Jamro</value>
+  </data>
+  <data name="HelpName" xml:space="preserve">
+    <value>Space Aim 3D</value>
+  </data>
+  <data name="HelpVersion" xml:space="preserve">
+    <value>Version 0.0.0.1</value>
+  </data>
+</root>

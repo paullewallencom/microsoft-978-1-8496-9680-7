@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="SpaceAim3D.Views.RankControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Models="clr-namespace:SpaceAim3D.Models"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource SA3DFontBrush}"
+    x:Name="Properties">
+
+    <UserControl.Resources>
+        <Models:RankTopScoreConverter x:Key="TopScoreConverter" />
+        <DataTemplate x:Key="RankTemplate">
+            <Grid Margin="5 2 5 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="80" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                    <TextBlock Text="{Binding Number}" FontWeight="{Binding IsTopThree, Converter={StaticResource TopScoreConverter}}" />
+                    <TextBlock Text="." FontWeight="{Binding IsTopThree, Converter={StaticResource TopScoreConverter}}" />
+                </StackPanel>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Name}" FontWeight="{Binding IsTopThree, Converter={StaticResource TopScoreConverter}}" />
+                <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Text="{Binding Score}" FontWeight="{Binding IsTopThree, Converter={StaticResource TopScoreConverter}}" />
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource SA3DBox}">
+        <StackPanel>
+            <TextBlock Text="{Binding ElementName=Properties, Path=RankName}" Style="{StaticResource SA3DBoxHeader}" />
+            <ItemsControl ItemsSource="{Binding}" ItemTemplate="{StaticResource RankTemplate}" />
+        </StackPanel>
+    </Border>
+</UserControl>
